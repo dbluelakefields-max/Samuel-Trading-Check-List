@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fc">
+<title>Smart Trading Checklist</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#697386;--line:#e3e8f1;--blue:#315efb;--blue2:#eaf0ff;--green:#16845b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:650px;margin:auto;padding:22px 16px 36px}.top{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.logo{width:46px;height:46px;border-radius:15px;background:var(--blue);color:white;display:grid;place-items:center;font-size:23px;font-weight:800}
+h1{font-size:22px;line-height:1.15;margin:0}.sub{color:var(--muted);font-size:13px;margin-top:5px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:0 5px 18px #263b5a08}
+.progress-head{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700}
+.track{height:8px;background:#edf0f6;border-radius:20px;overflow:hidden;margin-top:12px}.bar{height:100%;width:0;background:var(--blue);border-radius:20px;transition:width .2s}
+.section-title{font-size:15px;font-weight:800;margin:0 0 12px;display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:11px;background:var(--blue2);color:var(--blue);padding:4px 8px;border-radius:20px;font-weight:800;letter-spacing:.3px}
+.item{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-top:1px solid #eff2f7;cursor:pointer}
+.item:first-of-type{border-top:0}.item input{appearance:none;flex:none;width:22px;height:22px;border:2px solid #c8d1e0;border-radius:7px;margin:1px 0 0;display:grid;place-items:center}
+.item input:checked{background:var(--blue);border-color:var(--blue)}.item input:checked:after{content:"✓";font-size:15px;color:white;font-weight:900}
+.item strong{display:block;font-size:14px}.item small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.item.done strong{color:#7a8495;text-decoration:line-through}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}
+input[type=text],select,textarea{font:inherit;font-size:14px;width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;background:#fff;color:var(--ink);outline-color:var(--blue)}
+textarea{resize:vertical;min-height:76px}.full{grid-column:1/-1}
+.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:12px 15px;font-weight:800;font-size:13px;cursor:pointer}.primary{background:var(--blue);color:#fff}.secondary{background:#edf1f8;color:#25324a}
+.notice{font-size:12px;color:var(--muted);margin-top:14px}.status{font-size:13px;color:var(--green);font-weight:700;min-height:20px}
+@media(max-width:390px){.fields{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="top"><div class="logo">✓</div><div><h1>Smart Trading Checklist</h1><div class="sub">Your process first. The trade comes second.</div></div></header>
+<section class="panel">
+<div class="progress-head"><span>Pre-trade readiness</span><span id="count">0 of 8 complete</span></div>
+<div class="track"><div class="bar" id="bar"></div></div>
+<div class="sub" id="progressHint" style="margin-top:10px">Review every item before considering an entry.</div>
+</section>
+<section class="panel">
+<h2 class="section-title">1. Market structure <span class="tag">CONTEXT</span></h2>
+<label class="item"><input type="checkbox" data-key="trend"><span><strong>Trend / market structure</strong><small>Identify bullish, bearish, or ranging conditions on your higher timeframe.</small></span></label>
+<label class="item"><input type="checkbox" data-key="swing"><span><strong>Swing range</strong><small>Mark the relevant swing high and swing low; confirm the range is clear.</small></span></label>
+<label class="item"><input type="checkbox" data-key="premium"><span><strong>Premium / discount</strong><small>Locate price within the range and check whether it fits your setup.</small></span></label>
+<label class="item"><input type="checkbox" data-key="liquidity"><span><strong>Liquidity</strong><small>Mark likely liquidity pools and wait for the reaction you planned.</small></span></label>
+<label class="item"><input type="checkbox" data-key="news"><span><strong>News / economic calendar</strong><small>Check high-impact events such as CPI, NFP, and Fed announcements. Know the release time and avoid impulsive entries around volatility.</small></span></label>
+</section>
+<section class="panel">
+<h2 class="section-title">2. Area of interest <span class="tag">LOCATION</span></h2>
+<label class="item"><input type="checkbox" data-key="sd"><span><strong>Supply / demand</strong><small>Confirm the zone is clear, relevant, and not already invalidated.</small></span></label>
+<label class="item"><input type="checkbox" data-key="ob"><span><strong>Order block</strong><small>Check the order block aligns with your structure and trade idea.</small></span></label>
+<label class="item"><input type="checkbox" data-key="fvg"><span><strong>Fair value gap (FVG)</strong><small>Identify the imbalance and decide in advance what reaction you need.</small></span></label>
+</section>
+<section class="panel">
+<h2 class="section-title">3. Entry discipline <span class="tag">EXECUTION</span></h2>
+<label class="item"><input type="checkbox" data-key="entry"><span><strong>Entry confirmation</strong><small>Wait for your trigger. Define entry, stop-loss, target, and risk before placing the trade.</small></span></label>
+</section>
+<section class="panel">
+<h2 class="section-title">Trade notes <span class="tag">OPTIONAL</span></h2>
+<div class="fields">
+<div class="field"><label for="symbol">Instrument</label><input id="symbol" type="text" placeholder="e.g. XAUUSD"></div>
+<div class="field"><label for="tf">Timeframe</label><select id="tf"><option>5 min</option><option>15 min</option><option>30 min</option><option>1 hour</option><option>4 hour</option><option>Daily</option></select></div>
+<div class="field"><label for="direction">Trade direction</label><select id="direction"><option>Not decided</option><option>Buy / Long</option><option>Sell / Short</option></select></div>
+<div class="field"><label for="risk">Planned risk</label><input id="risk" type="text" placeholder="e.g. 0.5%"></div>
+<div class="field full"><label for="notes">Setup notes</label><textarea id="notes" placeholder="What confirms the setup? What invalidates it?"></textarea></div>
+</div>
+<div class="actions" style="margin-top:14px"><button class="btn primary" id="save">Save checklist</button><button class="btn secondary" id="reset">Reset checks</button><button class="btn secondary" id="export">Export notes</button></div>
+<div class="status" id="status" aria-live="polite" style="margin-top:12px"></div>
+<p class="notice">Checklist progress and notes are saved locally on this device. This is a decision aid, not a signal service or a guarantee of profit. Trading can result in loss.</p>
+</section>
+</main>
+<script>
+const boxes=[...document.querySelectorAll('input[type=checkbox]')];
+const keys=['symbol','tf','direction','risk','notes'];
+function update(){
+ let n=boxes.filter(b=>b.checked).length;
+ document.getElementById('count').textContent=`${n} of ${boxes.length} complete`;
+ document.getElementById('bar').style.width=(n/boxes.length*100)+'%';
+ document.getElementById('progressHint').textContent=n===9?'All checklist items reviewed. Confirm your risk plan before entering.':`${boxes.length-n} item${boxes.length-n===1?'':'s'} left to review. Don't force a trade.`;
+ boxes.forEach(b=>b.closest('.item').classList.toggle('done',b.checked));
+}
+function save(){
+ const data={checks:Object.fromEntries(boxes.map(b=>[b.dataset.key,b.checked])),fields:Object.fromEntries(keys.map(k=>[k,document.getElementById(k).value]))};
+ try{localStorage.setItem('smartTradingChecklist',JSON.stringify(data));document.getElementById('status').textContent='Saved on this device.'}catch(e){document.getElementById('status').textContent='Could not save on this device.'}
+}
+function load(){
+ try{const d=JSON.parse(localStorage.getItem('smartTradingChecklist')||'{}');boxes.forEach(b=>b.checked=!!(d.checks&&d.checks[b.dataset.key]));keys.forEach(k=>{if(d.fields&&d.fields[k]!==undefined)document.getElementById(k).value=d.fields[k]})}catch(e){}
+ update();
+}
+boxes.forEach(b=>b.addEventListener('change',()=>{update();save()}));
+keys.forEach(k=>document.getElementById(k).addEventListener('change',save));
+document.getElementById('save').addEventListener('click',save);
+document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);update();save();document.getElementById('status').textContent='Checklist reset.'});
+document.getElementById('export').addEventListener('click',()=>{
+ const lines=['SMART TRADING CHECKLIST',...boxes.map(b=>`${b.checked?'[x]':'[ ]'} ${b.closest('.item').querySelector('strong').textContent}`),'',`Instrument: ${document.getElementById('symbol').value}`,`Timeframe: ${document.getElementById('tf').value}`,`Direction: ${document.getElementById('direction').value}`,`Planned risk: ${document.getElementById('risk').value}`,'',`Notes: ${document.getElementById('notes').value}`].join('\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([lines],{type:'text/plain'}));a.download='smart-trading-checklist.txt';a.click();URL.revokeObjectURL(a.href);document.getElementById('status').textContent='Checklist exported as a text file.';
+});
+load();
+</script></body></html>
